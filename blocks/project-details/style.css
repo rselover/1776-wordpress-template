@@ -1,0 +1,21 @@
+.wp-block-theme-1776-project-details {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	gap: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
+	margin: 0;
+	padding: var(--wp--preset--spacing--40) 0;
+	border-top: 1px solid var(--wp--preset--color--line);
+	border-bottom: 1px solid var(--wp--preset--color--line);
+}
+
+.wp-block-theme-1776-project-details dt {
+	font-size: var(--wp--preset--font-size--x-small);
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--muted);
+}
+
+.wp-block-theme-1776-project-details dd {
+	margin: 0.25rem 0 0;
+}

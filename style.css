@@ -1,10 +1,99 @@
 /*
 Theme Name: 1776
-Description: A minimal block theme starter.
-Version: 0.1.0
-Requires at least: 6.4
+Theme URI: https://github.com/rselover/1776-wordpress-template
+Author: rselover
+Author URI: https://github.com/rselover
+Description: A hand-built block theme for a small studio or consultancy: portfolio projects, services, a blog and a spam-resistant contact form. Written from scratch with no parent or starter theme.
+Version: 0.2.0
+Requires at least: 6.6
+Tested up to: 6.8
 Requires PHP: 7.4
 License: GPL-3.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: 1776-wordpress-template
+Tags: block-patterns, full-site-editing, portfolio, blog, custom-colors, editor-style, style-variations, wide-blocks, translation-ready
 */
+
+/*
+ * Most styling lives in theme.json so it is editable in the Site Editor.
+ * This file only holds what theme.json cannot express (yet).
+ * Per-block CSS for core blocks lives in assets/css/blocks/ and is only
+ * loaded on pages that render that block (see inc/enqueue.php).
+ */
+
+/* Visible, consistent keyboard focus everywhere. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+	outline: 2px solid var(--wp--preset--color--brick);
+	outline-offset: 3px;
+}
+
+/* Sticky header that stays out of the way of the admin bar. */
+.site-header {
+	position: sticky;
+	top: var(--wp-admin--admin-bar--height, 0);
+	z-index: 10;
+	backdrop-filter: blur(6px);
+}
+
+/* Smaller "eyebrow" label used above section headings. */
+.is-style-eyebrow {
+	font-family: var(--wp--preset--font-family--sans);
+	font-size: var(--wp--preset--font-size--x-small);
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--brick);
+}
+
+/* Card group style: registered in inc/setup.php. */
+.is-style-card {
+	background: var(--wp--preset--color--base);
+	border: 1px solid var(--wp--preset--color--line);
+	border-radius: 6px;
+	transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.is-style-card:hover {
+	box-shadow: var(--wp--preset--shadow--soft);
+}
+
+/* List style with stars instead of bullets. */
+.is-style-stars {
+	list-style: none;
+	padding-left: 0;
+}
+
+.is-style-stars li {
+	position: relative;
+	padding-left: 1.6em;
+}
+
+.is-style-stars li::before {
+	content: "\2605";
+	position: absolute;
+	left: 0;
+	color: var(--wp--preset--color--brick);
+}
+
+/* Separator style: three stars. */
+hr.is-style-stars {
+	border: 0;
+	height: auto;
+	background: none !important;
+	text-align: center;
+	color: var(--wp--preset--color--brick);
+}
+
+hr.is-style-stars::before {
+	content: "\2605\00a0\00a0\2605\00a0\00a0\2605";
+	letter-spacing: 0.3em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		transition: none !important;
+		animation: none !important;
+	}
+}

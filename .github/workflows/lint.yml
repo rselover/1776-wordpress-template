@@ -1,0 +1,38 @@
+name: Lint
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  php:
+    name: PHP (syntax + WordPress Coding Standards)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          coverage: none
+          tools: composer
+
+      - name: Syntax check (PHP 7.4, the minimum supported version)
+        run: find . -name '*.php' -not -path './vendor/*' -print0 | xargs -0 -n1 php -l
+
+      - name: Install coding standards
+        run: composer install --no-interaction --no-progress
+
+      - name: PHPCS (WordPress + PHP compatibility)
+        run: vendor/bin/phpcs
+
+  json:
+    name: JSON files are valid
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: for f in $(git ls-files '*.json'); do jq empty "$f" || exit 1; done

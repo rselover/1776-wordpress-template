@@ -1,0 +1,51 @@
+name: Deploy live demo
+
+# Builds the theme zip and publishes it, with the Playground blueprint and a
+# landing page, to GitHub Pages. WordPress itself runs in the visitor's
+# browser via WordPress Playground, so no PHP host is needed.
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build theme zip (respects .gitattributes export-ignore)
+        run: |
+          mkdir -p _site
+          git archive --format=zip --prefix=1776-wordpress-template/ -o _site/1776-wordpress-template.zip HEAD
+
+      - name: Add demo files
+        run: |
+          cp demo/index.html demo/blueprint.json _site/
+          cp demo/setup.php _site/demo-setup.php
+          touch _site/.nojekyll
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

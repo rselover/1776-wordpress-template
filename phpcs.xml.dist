@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<ruleset name="1776 theme">
+	<description>WordPress Coding Standards for the 1776 theme.</description>
+
+	<file>.</file>
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg value="sp"/>
+
+	<config name="minimum_supported_wp_version" value="6.6"/>
+	<config name="testVersion" value="7.4-"/>
+
+	<rule ref="WordPress"/>
+	<rule ref="PHPCompatibilityWP"/>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="1776-wordpress-template"/>
+			</property>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="Theme1776"/>
+				<element value="theme_1776"/>
+				<element value="t1776"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- index.asset.php is the file name WordPress looks for next to a block script. -->
+	<rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
+		<exclude-pattern>/blocks/*/index.asset.php</exclude-pattern>
+	</rule>
+
+	<!-- The demo content script runs inside WordPress Playground, not as part of the theme. -->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound">
+		<exclude-pattern>/demo/*</exclude-pattern>
+	</rule>
+</ruleset>

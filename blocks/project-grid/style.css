@@ -1,0 +1,85 @@
+/* Scoped to ul so the editor wrapper div (around the server preview) is not also a grid. */
+ul.wp-block-theme-1776-project-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+	gap: var(--wp--preset--spacing--40);
+	list-style: none;
+	padding-left: 0;
+}
+
+@media (min-width: 900px) {
+	ul.wp-block-theme-1776-project-grid {
+		grid-template-columns: repeat(var(--t1776-columns, 3), minmax(0, 1fr));
+	}
+}
+
+.t1776-project-card__link {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+	color: inherit;
+	text-decoration: none;
+	background: var(--wp--preset--color--base);
+	border: 1px solid var(--wp--preset--color--line);
+	border-radius: 6px;
+	transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.t1776-project-card__link:hover,
+.t1776-project-card__link:focus-visible {
+	box-shadow: var(--wp--preset--shadow--soft);
+	transform: translateY(-2px);
+}
+
+.t1776-project-card__image,
+.t1776-project-card__placeholder {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 10;
+	object-fit: cover;
+}
+
+.t1776-project-card__placeholder {
+	display: grid;
+	place-items: center;
+	font-family: var(--wp--preset--font-family--serif);
+	font-size: 4rem;
+	color: var(--wp--preset--color--base);
+	background:
+		radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12) 0 2px, transparent 3px) 0 0 / 24px 24px,
+		linear-gradient(135deg, var(--wp--preset--color--contrast), var(--wp--preset--color--brick));
+}
+
+.t1776-project-card__body {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	padding: var(--wp--preset--spacing--40);
+}
+
+.t1776-project-card__type {
+	font-size: var(--wp--preset--font-size--x-small);
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--brick);
+}
+
+.t1776-project-card__title {
+	font-family: var(--wp--preset--font-family--serif);
+	font-size: var(--wp--preset--font-size--large);
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+.t1776-project-card__excerpt {
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.t1776-project-card__meta {
+	margin-top: auto;
+	padding-top: 0.5rem;
+	font-size: var(--wp--preset--font-size--x-small);
+	color: var(--wp--preset--color--muted);
+}

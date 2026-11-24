@@ -1,0 +1,39 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"meta": {
+		"title": "1776 theme demo",
+		"description": "Installs the 1776 block theme with sample pages, projects and posts.",
+		"author": "rselover",
+		"categories": [ "Themes" ]
+	},
+	"landingPage": "/",
+	"preferredVersions": {
+		"php": "8.3",
+		"wp": "latest"
+	},
+	"login": true,
+	"steps": [
+		{
+			"step": "installTheme",
+			"themeData": {
+				"resource": "url",
+				"url": "https://rselover.github.io/1776-wordpress-template/1776-wordpress-template.zip"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "writeFile",
+			"path": "/wordpress/wp-content/1776-demo-setup.php",
+			"data": {
+				"resource": "url",
+				"url": "https://rselover.github.io/1776-wordpress-template/demo-setup.php"
+			}
+		},
+		{
+			"step": "runPHP",
+			"code": "<?php require '/wordpress/wp-load.php'; require '/wordpress/wp-content/1776-demo-setup.php';"
+		}
+	]
+}

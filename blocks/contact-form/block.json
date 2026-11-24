@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "theme-1776/contact-form",
+	"version": "0.2.0",
+	"title": "Contact Form",
+	"category": "theme-1776",
+	"icon": "email",
+	"description": "A spam-resistant contact form. Messages are saved under Messages in the admin and emailed to the site admin.",
+	"keywords": [ "contact", "form", "email" ],
+	"textdomain": "1776-wordpress-template",
+	"attributes": {
+		"submitLabel": { "type": "string", "default": "" }
+	},
+	"supports": {
+		"html": false,
+		"multiple": false,
+		"spacing": { "margin": true, "padding": true }
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}
