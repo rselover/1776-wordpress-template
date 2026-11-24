@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.6/theme.json",
+	"version": 3,
+	"title": "Midnight",
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "base", "name": "Paper", "color": "#121A28" },
+				{ "slug": "parchment", "name": "Parchment", "color": "#1B2638" },
+				{ "slug": "line", "name": "Rule", "color": "#2C3A52" },
+				{ "slug": "muted", "name": "Slate", "color": "#A3ADBF" },
+				{ "slug": "contrast", "name": "Ink", "color": "#F3EEE4" },
+				{ "slug": "brick", "name": "Brick", "color": "#E07A5F" },
+				{ "slug": "gold", "name": "Gold", "color": "#D9B46A" }
+			]
+		}
+	}
+}

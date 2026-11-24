@@ -1,0 +1,60 @@
+.t1776-form {
+	display: grid;
+	gap: var(--wp--preset--spacing--30);
+}
+
+.t1776-form__field {
+	display: grid;
+	gap: 0.35rem;
+	margin: 0;
+}
+
+.t1776-form__field label {
+	font-size: var(--wp--preset--font-size--small);
+	font-weight: 600;
+}
+
+.t1776-form input[type="text"],
+.t1776-form input[type="email"],
+.t1776-form textarea {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0.75rem 0.9rem;
+	font: inherit;
+	color: var(--wp--preset--color--contrast);
+	background: var(--wp--preset--color--base);
+	border: 1px solid var(--wp--preset--color--muted);
+	border-radius: 4px;
+}
+
+.t1776-form textarea {
+	resize: vertical;
+}
+
+.t1776-form__actions {
+	margin: 0;
+}
+
+/* Visually hidden but still in the DOM for bots to find. */
+.t1776-form__hp {
+	position: absolute !important;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.t1776-form__notice {
+	padding: 0.85rem 1rem;
+	border-left: 4px solid;
+	border-radius: 2px;
+	background: var(--wp--preset--color--parchment);
+}
+
+.t1776-form__notice.is-success {
+	border-color: #2E7D4F;
+}
+
+.t1776-form__notice.is-error {
+	border-color: var(--wp--preset--color--brick);
+}

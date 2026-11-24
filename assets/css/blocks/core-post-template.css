@@ -1,0 +1,7 @@
+/* Loaded only on pages that render core/post-template (see inc/enqueue.php). */
+
+/* Hairline rule between posts in list layouts. */
+.wp-block-post-template.is-layout-flow > li + li {
+	border-top: 1px solid var(--wp--preset--color--line);
+	padding-top: var(--wp--preset--spacing--40);
+}

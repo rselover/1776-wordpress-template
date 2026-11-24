@@ -1,0 +1,16 @@
+/* Loaded only on pages that render core/navigation (see inc/enqueue.php). */
+
+/* Underline the current page link so visitors know where they are. */
+.wp-block-navigation .current-menu-item > a,
+.wp-block-navigation .wp-block-navigation-item__content[aria-current="page"] {
+	text-decoration: underline;
+	text-decoration-color: var(--wp--preset--color--brick);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 0.35em;
+}
+
+/* Give the mobile overlay menu the theme's paper background. */
+.wp-block-navigation__responsive-container.is-menu-open {
+	background-color: var(--wp--preset--color--base);
+	color: var(--wp--preset--color--contrast);
+}

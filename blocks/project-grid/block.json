@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "theme-1776/project-grid",
+	"version": "0.2.0",
+	"title": "Project Grid",
+	"category": "theme-1776",
+	"icon": "portfolio",
+	"description": "A grid of portfolio projects, optionally filtered by project type.",
+	"keywords": [ "portfolio", "work", "case study" ],
+	"textdomain": "1776-wordpress-template",
+	"attributes": {
+		"count": { "type": "integer", "default": 3 },
+		"columns": { "type": "integer", "default": 3 },
+		"projectType": { "type": "string", "default": "" },
+		"showExcerpt": { "type": "boolean", "default": true },
+		"excludeCurrent": { "type": "boolean", "default": false }
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"spacing": { "margin": true, "padding": true }
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style.css",
+	"render": "file:./render.php"
+}
